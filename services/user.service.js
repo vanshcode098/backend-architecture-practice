@@ -1,4 +1,5 @@
 import  User from "../models/User.js"
+import { findTaskById } from "../repositories/task.repository.js";
 
 
 
@@ -8,4 +9,13 @@ export const createUserService= async(data)=>{
         email: data.email
     });
     return user;
+};
+
+
+
+export const getTaskService= async(id) =>
+{
+    const task= await findTaskById(id);
+
+    return task;
 };
